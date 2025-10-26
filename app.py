@@ -18,12 +18,12 @@ def landing_demo():
         'titulo': 'Terrenos en Monterrico',
         'descripcion': 'Terrenos de 15x30mts2 a 400 mts de la playa, excelente inversion para airbnb '
         'o para casa de vacaciones. Acceso facil para conectar servicios y directo a carretera.',
-        'precio': '$26,700',
-        'title': 'Lots in Monterrico',
-        'description': '15x30 m² lots located just 400 meters from the beach — '
+        'precio': '$160,000',
+        'titulo2': 'Lots in Monterrico',                    # 
+        'descripcion2': '15x30 m² lots located just 400 meters from the beach — '
         'an excellent investment for Airbnb or a vacation home. '
         'Easy access to utilities and direct connection to the main road.',
-        'price': '$26,700' ,
+        'price': '$160,000',
        'imagenes': [
             'uploads/demo_casa1.jpg',
             'uploads/demo_casa2.jpg',
@@ -37,4 +37,5 @@ def landing_demo():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
 
