@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ propiedad.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="card">
+        <div class="gallery">
+            {% for img in propiedad.imagenes %}
+                <img src="{{ url_for('static', filename=img) }}" alt="Imagen de la propiedad">
+            {% endfor %}
+        </div>
+
+        <div class="info">
+            <h2>{{ propiedad.titulo }}</h2>
+            <p class="desc">{{ propiedad.descripcion }}</p>
+            <p class="price">{{ propiedad.precio }}</p>
+            <a href="https://wa.me/{{ propiedad.whatsapp }}?text=Hola%20estoy%20interesado%20en%20la%20{{ propiedad.titulo }}" 
+               target="_blank" class="btn-whatsapp">Contactar por WhatsApp</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
+</html>
