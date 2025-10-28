@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ propiedad.titulo }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- AGREGAR FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -28,7 +30,28 @@
                 <p class="desc">{{ propiedad.descripcion }}</p>
                 <p class="price">{{ propiedad.precio }}</p>
                 <a href="https://wa.me/{{ propiedad.whatsapp }}?text=Hola%20estoy%20interesado%20en%20la%20propiedad: {{ propiedad.titulo | urlencode }}" 
-                   target="_blank" class="btn-whatsapp">Contactar por WhatsApp</a>
+                   target="_blank" class="btn-whatsapp"
+                   onclick="trackWhatsAppClick()">Contactar por WhatsApp</a>
+                <a href="{{ url_for('prospect_form') }}?source=landing" class="btn-prospecto">Dejar información de contacto</a>
+                
+                <!-- BOTONES DE REDES SOCIALES - ESPAÑOL -->
+                <div class="social-media">
+                    <p>Síguenos en nuestras redes:</p>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com/tu-pagina" target="_blank" class="social-btn fb">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="social-btn in">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://tiktok.com/@tu-usuario" target="_blank" class="social-btn tt">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://instagram.com/tu-usuario" target="_blank" class="social-btn ig">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- CONTENIDO EN INGLÉS -->
@@ -37,19 +60,52 @@
                 <p class="desc">{{ propiedad.descripcion2 }}</p>
                 <p class="price">{{ propiedad.price }}</p>
                 <a href="https://wa.me/{{ propiedad.whatsapp }}?text=Hello%20I'm%20interested%20in%20the%20property: {{ propiedad.titulo2 | urlencode }}" 
-                   target="_blank" class="btn-whatsapp">Contact via WhatsApp</a>
+                   target="_blank" class="btn-whatsapp"
+                   onclick="trackWhatsAppClick()">Contact via WhatsApp</a>
+                <a href="{{ url_for('prospect_form') }}?source=landing" class="btn-prospecto">Leave contact information</a>
+                
+                <!-- BOTONES DE REDES SOCIALES - INGLÉS -->
+                <div class="social-media">
+                    <p>Follow us on social media:</p>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com/tu-pagina" target="_blank" class="social-btn fb">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="social-btn in">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://tiktok.com/@tu-usuario" target="_blank" class="social-btn tt">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://instagram.com/tu-usuario" target="_blank" class="social-btn ig">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Función para cambiar idioma via AJAX
+        function setLanguage(lang) {
+            fetch('/set_language/' + lang)
+                .then(response => {
+                    showLanguage(lang);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showLanguage(lang); // Mostrar el idioma aunque falle el servidor
+                });
+        }
+
         // JavaScript para cambiar idiomas
         document.getElementById('btn-espanol').addEventListener('click', function() {
-            showLanguage('espanol');
+            setLanguage('espanol');
         });
 
         document.getElementById('btn-ingles').addEventListener('click', function() {
-            showLanguage('ingles');
+            setLanguage('ingles');
         });
 
         function showLanguage(lang) {
@@ -67,6 +123,38 @@
             });
             document.getElementById('btn-' + lang).classList.add('active');
         }
+
+        // Función para redirigir al formulario después de WhatsApp (OPCIONAL)
+        function trackWhatsAppClick() {
+            // Esta función es opcional - si quieres que después de WhatsApp vayan al formulario
+            // Si no quieres redirección automática, elimina o comenta esta función
+            /*
+            setTimeout(function() {
+                window.location.href = "{{ url_for('prospect_form') }}?source=whatsapp";
+            }, 3000);
+            */
+        }
+        
+        // ELIMINAR o COMENTAR esta parte que causa redirección no deseada
+        /*
+        document.querySelectorAll('.social-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const socialType = this.classList[1]; // fb, in, tt, ig
+                setTimeout(function() {
+                    window.location.href = "{{ url_for('prospect_form') }}?source=" + socialType;
+                }, 2000);
+            });
+        });
+        */
+        
+        // En su lugar, puedes usar este código si quieres tracking sin redirección
+        document.querySelectorAll('.social-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const socialType = this.classList[1]; // fb, in, tt, ig
+                console.log('Red social clickeada:', socialType);
+                // Aquí podrías enviar un evento a Google Analytics u otro sistema de tracking
+            });
+        });
     </script>
 
 </body>
