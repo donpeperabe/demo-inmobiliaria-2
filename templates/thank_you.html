@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias - Terrenos Monterrico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <div class="thank-you-container">
+            {% if language == 'espanol' %}
+                <!-- Contenido en Español -->
+                <div class="success-icon">✓</div>
+                <h2>¡Gracias por su interés!</h2>
+                <p>Hemos recibido su información correctamente. Un asesor se pondrá en contacto con usted en las próximas 24 horas.</p>
+                <div class="actions">
+                    <a href="{{ url_for('landing_demo') }}" class="btn-primary">Volver a la propiedad</a>
+                    <a href="https://wa.me/50244851125" target="_blank" class="btn-whatsapp">Contactar por WhatsApp</a>
+                </div>
+            {% else %}
+                <!-- Contenido en Inglés -->
+                <div class="success-icon">✓</div>
+                <h2>Thank You for Your Interest!</h2>
+                <p>We have received your information successfully. An advisor will contact you within the next 24 hours.</p>
+                <div class="actions">
+                    <a href="{{ url_for('landing_demo') }}" class="btn-primary">Back to Property</a>
+                    <a href="https://wa.me/50244851125" target="_blank" class="btn-whatsapp">Contact via WhatsApp</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
