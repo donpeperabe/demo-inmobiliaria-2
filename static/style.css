@@ -146,4 +146,199 @@ body {
 .language-content {
     transition: opacity 0.3s ease;
 }
+/* Estilos para botones de redes sociales */
+.social-media {
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.social-media p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.social-btn.fb {
+    background-color: #3b5998;
+}
+
+.social-btn.in {
+    background-color: #0077b5;
+}
+
+.social-btn.tt {
+    background-color: #000000;
+}
+
+.social-btn.ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+/* Asegurar que los iconos se vean bien */
+.social-btn i {
+    font-size: 20px;
+}
+/* Estilos para el formulario de prospectos */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.prospect-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2c5aa0;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #2c5aa0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #1e3d6f;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para página de agradecimiento */
+.thank-you-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.actions {
+    margin-top: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2c5aa0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+/* Botón para formulario de prospectos en landing */
+.btn-prospecto {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 25px;
+    background-color: #f8f9fa;
+    color: #2c5aa0;
+    text-decoration: none;
+    border: 2px solid #2c5aa0;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s;
+    max-width: 300px;
+}
+
+.btn-prospecto:hover {
+    background-color: #2c5aa0;
+    color: white;
+}
+/* Estilos para indicadores de campos */
+.field-required {
+    display: block;
+    font-size: 12px;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+.field-optional {
+    display: block;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Ajustes para el formulario */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group label:after {
+    content: "";
+}
+
+.form-group label[for="nombre"]:after,
+.form-group label[for="telefono"]:after {
+    content: " *";
+    color: #e74c3c;
+}
+
 
