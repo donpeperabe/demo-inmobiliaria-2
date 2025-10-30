@@ -340,5 +340,58 @@ body {
     content: " *";
     color: #e74c3c;
 }
+/* ===== LOGO ===== */
+.card-header {
+    background: transparent;
+    padding: 25px 20px 5px 20px; /* Más padding arriba, menos abajo */
+    text-align: center;
+    border-bottom: none;
+}
+
+.card-header .logo-img {
+    max-width: 100px; /* Más pequeño */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.card-header .logo-img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Para formularios */
+.form-header {
+    background: transparent;
+    padding: 25px 20px 5px 20px;
+    text-align: center;
+    border-bottom: none;
+}
+/* ===== RESPONSIVE PARA EL LOGO ===== */
+@media (max-width: 768px) {
+    .company-logo {
+        padding: 15px 0;
+    }
+    
+    .logo-img {
+        max-width: 150px;
+    }
+    
+    .card-header .logo-img {
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        max-width: 120px;
+    }
+    
+    .card-header .logo-img {
+        max-width: 110px;
+    }
+}
+
 
 
