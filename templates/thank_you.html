@@ -9,9 +9,12 @@
 </head>
 <body>
     <div class="card">
-        <div class="card-header"><img src="{{ url_for('static', filename='images/logo.png') }}" 
+    <div class="card-header">
+        <a href="{{ url_for('admin_prospectos') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" 
              alt="Logo de la empresa" 
-             class="logo-img" align="absmiddle"></div>
+             class="logo-img" align="absmiddle"></a>
+            </div>    
         <div class="thank-you-container">
             {% if language == 'espanol' %}
                 <!-- Contenido en Español -->
@@ -35,5 +38,4 @@
         </div>
     </div>
 </body>
-
 </html>
