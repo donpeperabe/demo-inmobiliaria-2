@@ -10,10 +10,14 @@
 </head>
 <body>
     <div class="card">
-        <div class="card-header"><img src="{{ url_for('static', filename='images/logo.png') }}" 
+    <div class="card-header">
+        <a href="{{ url_for('admin_prospectos') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" 
              alt="Logo de la empresa" 
-             class="logo-img" align="absmiddle"></div>
-        <!-- BOTÓN DE CAMBIO DE IDIOMA -->
+             class="logo-img" align="absmiddle"></a>
+            </div>
+
+           <!-- BOTÓN DE CAMBIO DE IDIOMA -->
         <div class="language-switcher">
             <button id="btn-espanol" class="lang-btn active">Español</button>
             <button id="btn-ingles" class="lang-btn">English</button>
@@ -161,6 +165,7 @@
 
 </body>
 </html>
+
 
 
 
